@@ -251,7 +251,7 @@ input[type="submit"] {
 
 .w-100 {
 	width: 100%;
-	height: auto;
+	height: 100%;
 }
 
 @media all and (max-width: 1180px) {
