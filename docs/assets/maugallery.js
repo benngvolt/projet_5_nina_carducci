@@ -317,10 +317,10 @@
 
     showItemTags(gallery, position, tag) {
       var tagItems =
-        '<li class="nav-item"><span class="nav-link active active-tag"  data-images-toggle="all">Tous</span></li>';
+        '<li class="nav-item"><h3 class="nav-link active active-tag"  data-images-toggle="all">Tous</h3></li>';
       $.each(tag, function(index, value) {
         tagItems += `<li class="nav-item active">
-                <span class="nav-link"  data-images-toggle="${value}">${value}</span></li>`;
+                <h3 class="nav-link"  data-images-toggle="${value}">${value}</h3></li>`;
       });
       var tagsRow = `<ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul>`;
 
