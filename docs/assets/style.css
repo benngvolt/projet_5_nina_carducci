@@ -152,9 +152,14 @@ body {
 	font-family: Spectral;
 	font-style: italic;
 	font-weight: 300;
+	font-size: 2.5rem;
+	line-height: 1.2;
+
 
 }
 .quote__author {
+	margin-top: 0;
+    margin-bottom: 0.5rem;
 	font-family: Spectral;
 	font-weight: 800;
 	font-size: 22px;
