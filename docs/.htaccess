@@ -7,7 +7,7 @@ Header set Cache-Control "max-age=2592000, public"
 Header set Cache-Control "max-age=2592000, private"
 </FilesMatch>
 <FilesMatch "\.(html)$">
-Header set Cache-Control "max-age=7200, public"
+Header set Cache-Control "max-age=604 800, public"
 </FilesMatch>
 </IfModule>
 # END Cache-Control Headers

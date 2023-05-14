@@ -219,9 +219,6 @@
           if (thisImg.is(activeImage)) {
             let activeImageIndex = i;
             let prevImageIndex = activeImageIndex - 1;
-            console.log (activeImageIndex);
-            console.log (prevImageIndex);
-            console.log (imagesCollection.length);
             if (prevImageIndex < imagesCollection.length && prevImageIndex >= 0) {
               activeImage = imagesCollection[prevImageIndex];
               console.log(activeImage.attr("src"));
