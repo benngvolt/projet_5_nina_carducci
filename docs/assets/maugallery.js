@@ -117,7 +117,7 @@
           .first()
           .hasClass("row")
       ) {
-        element.append('<div class="gallery-items-row row"></div>');
+        element.append('<ul class="gallery-items-row row"></ul>');
       }
     },
 
@@ -126,7 +126,7 @@
     wrapItemInColumn(element, columns) {
       if (columns.constructor === Number) {
         element.wrap(
-          `<div class='item-column mb-4 col-${Math.ceil(12 / columns)}'></div>`
+          `<li class='item-column mb-4 col-${Math.ceil(12 / columns)}'></li>`
         );
       } else if (columns.constructor === Object) {
         var columnClasses = "";
@@ -145,7 +145,7 @@
         if (columns.xl) {
           columnClasses += ` col-xl-${Math.ceil(12 / columns.xl)}`;
         }
-        element.wrap(`<div class='item-column mb-4${columnClasses}'></div>`);
+        element.wrap(`<li class='item-column mb-4${columnClasses}'></li>`);
       } else {
         console.error(
           `Columns should be defined as numbers or objects. ${typeof columns} is not supported.`
