@@ -7,15 +7,10 @@
   //---------------------------------------------------
 
   $.fn.mauGallery = function(options) {
-    // la méthode .extend merge deux objets. Ici, merge des options avec paramètres par défaut
     var options = $.extend($.fn.mauGallery.defaults, options);
-    // création d'un tableau
     var tagsCollection = [];
-    // boucle sur tous les éléments sélectionnés et exécute une fonction pour chacun d'eux.
     return this.each(function() {
-      // Création d'un conteneur pour chaque rangée de la galerie
       $.fn.mauGallery.methods.createRowWrapper($(this));
-      // Si l'utilisateur a activé la lightbox, création de la lightbox
       if (options.lightBox) {
         $.fn.mauGallery.methods.createLightBox(
           $(this),
@@ -23,10 +18,8 @@
           options.navigation
         );
       }  
-      // Ajout des listeners pour les événements de clic sur la galerie  
       $.fn.mauGallery.listeners(options);
 
-      // Boucle sur chaque élément enfant ayant la classe .gallery-item
       $(this)
         .children(".gallery-item")
         .each(function(index) {
@@ -200,30 +193,40 @@
       });
       console.log(activeImage.attr("src")); //test pour voir si cette partie du code fonctionne= OK
 
-      // On construit une collection des images affichées
+      // On construit une collection des images affichées, dans un tableau
       let imagesCollection = [];
-      
-      $(".item-column").each(function() {
-        if ($(this).children("img")) {
-          imagesCollection.push($(this).children("img"));
-        }
-      })
-      console.log (imagesCollection.length);
-      
+        $(".item-column").each(function() {
+          let img = $(this).children("img");
+          if (img.length && img.is(":visible")) {
+            imagesCollection.push(img);
+          }
+        });
+        console.log(imagesCollection.length); //test pour voir le nombre d'images de la collection
+
+      // Déclaration d'une variable pour indiquer si une image a déjà été trouvée, avant de poursuivre les itérations restantes
       let imageFound = false;
 
       $(imagesCollection).each(function(i) {
+        // Si l'image n'a pas encore été trouvée, déclaration d'une variable pour stocker l'image en cours d'examination
         if (!imageFound) {
           let thisImg = $(this);
-        
+          
+          // Pour l'image en cours d'examination, vérification s'il s'agit de l'image affichée dans la modale.
           if (thisImg.is(activeImage)) {
+            // Si c'est le cas, définition de l'index du tableau i correspondant à l'image affichée
             let activeImageIndex = i;
+
+            // Définition de l'index du tableau correspondant à l'image précédente
             let prevImageIndex = activeImageIndex - 1;
+            
+            // Si l'image précédente à l'image en cours est la première de la collection ou supérieure, affichage de l'image précédente
             if (prevImageIndex < imagesCollection.length && prevImageIndex >= 0) {
               activeImage = imagesCollection[prevImageIndex];
               console.log(activeImage.attr("src"));
               $(".lightboxImage").attr("src", activeImage.attr("src"));
               imageFound = true;
+
+              // Si l'image précédente à l'image en cours a un index négatif, alors affichage de la dernière image de la collection
             } else if (prevImageIndex < 0) {
               activeImage = imagesCollection[imagesCollection.length - 1];
               console.log(activeImage.attr("src"));
@@ -238,24 +241,24 @@
 
     nextImage() {
 
-      // On trouve l'image actuellement active dans la lightbox
+      // Même procédé que pour prevImage mais pour l'image suivante
       let activeImage = null;
       $("img.gallery-item").each(function() {
         if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
           activeImage = $(this);
         }
       });
-      console.log(activeImage.attr("src")); //test pour voir si cette partie du code fonctionne= OK
+      console.log(activeImage.attr("src"));
 
-      // On construit une collection des images affichées
       let imagesCollection = [];
       
       $(".item-column").each(function() {
-        if ($(this).children("img")) {
-          imagesCollection.push($(this).children("img"));
+        let img = $(this).children("img");
+        if (img.length && img.is(":visible")) {
+          imagesCollection.push(img);
         }
-      })
-      console.log (imagesCollection.length);
+      });
+      console.log(imagesCollection.length);
       let imageFound = false;
 
       $(imagesCollection).each(function(i) {
@@ -332,34 +335,34 @@
 
 
     filterByTag(navLink) {
-
+        // l'élément navLink n'était pas attribué à la fonction filterByTag, d'où le dysfonctionnement
         if ($(navLink).hasClass("active-tag")) {
-          console.log("il a active tag");
+          console.log("il a active-tag");
           return;
 
-        } else {
+        } 
 
-          console.log("NO active tag");
-          $(".active-tag").removeClass("active active-tag");
-          $(navLink).addClass("active-tag active");
+        console.log("NO active tag");
+        $(".active-tag").removeClass("active active-tag");
+        $(navLink).addClass("active-tag active");
 
-          var tag = $(navLink).data("images-toggle");
+        var tag = $(navLink).data("images-toggle");
 
-          $(".gallery-item").each(function() {
+        $(".gallery-item").each(function() {
+          $(this)
+            .parents(".item-column")
+            .hide();
+          if (tag === "all") {
             $(this)
               .parents(".item-column")
-              .hide();
-            if (tag === "all") {
-              $(this)
-                .parents(".item-column")
-                .show(300);
-            } else if ($(this).data("gallery-tag") === tag) {
-              $(this)
-                .parents(".item-column")
-                .show(300);
-            }
-          });
-        }   
+              .show(300);
+          } else if ($(this).data("gallery-tag") === tag) {
+            $(this)
+              .parents(".item-column")
+              .show(300);
+          }
+        });
+          
     }
   };
 })(jQuery);
