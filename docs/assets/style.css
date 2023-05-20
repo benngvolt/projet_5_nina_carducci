@@ -22,7 +22,7 @@ main {
 }
 
 .top-header .name {
-	font-family: 'Inter';
+	font-family: 'Inter', sans-serif;
 	font-style: normal;
 	font-size: 26px;
 }
@@ -30,7 +30,7 @@ main {
 .nav ul {
 	display: flex;
 	list-style-type: none;
-	font-family: 'Inter';
+	font-family: 'Inter', sans-serif;
 	font-style: normal;
 	font-size: 14px;
 	margin-bottom: 0;
@@ -86,7 +86,7 @@ ul {
 }
 
 .carousel {
-	aspect-ratio: 2.16;
+	aspect-ratio: 2.16216;
 	width: 100%;
 	height: 100%;
 }
@@ -102,12 +102,12 @@ ul {
 .about-me__title {
 	margin-top: 1em;
 	margin-bottom: 60px;
-	font-family: 'Inter';
+	font-family: 'Inter', sans-serif;
 	font-style: normal;
 	font-size: 30px;
 }
 .about-me__introduction {
-	font-family: 'Spectral';
+	font-family: 'Spectral', serif;
 	font-weight: 800;
 	font-style: italic;
 	width: 60%;
@@ -134,7 +134,7 @@ ul {
 .nav-pills .nav-link {
 	color: #000;
 	cursor: pointer;
-	font-family: 'Inter';
+	font-family: 'Inter', sans-serif;
 	font-style: normal;
 	font-size: 16px;
     padding: 8px 16px;
@@ -172,14 +172,14 @@ ul {
 }
 
 .quote {
-	font-family: 'Spectral';
+	font-family: 'Spectral', serif;
 	font-style: italic;
 	width: 70%;
 	margin: auto;
 	padding-block: 3em;
 }
 .quote__text {
-	font-family: 'Spectral';
+	font-family: 'Spectral', serif;
 	font-style: italic;
 	font-weight: 300;
 	font-size: 2.5rem;
@@ -189,7 +189,7 @@ ul {
 .quote__author {
 	margin-top: 0;
     margin-bottom: 0.5rem;
-	font-family: 'Spectral';
+	font-family: 'Spectral', serif;
 	font-weight: 800;
 	font-size: 22px;
 	font-style: normal;
