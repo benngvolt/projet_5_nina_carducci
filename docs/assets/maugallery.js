@@ -23,15 +23,10 @@
       $(this)
         .children(".gallery-item")
         .each(function(index) {
-          // Redimensionnement de l'image pour l'affichage en grille
           $.fn.mauGallery.methods.responsiveImageItem($(this));
-          // Déplacement de l'élément dans le conteneur de rangée correspondant
-          $.fn.mauGallery.methods.moveItemInRowWrapper($(this));
-          // Enveloppement de l'élément dans la colonne correspondante
+          $.fn.mauGallery.methods.moveItemInRowWrapper($(this))
           $.fn.mauGallery.methods.wrapItemInColumn($(this), options.columns);
-          // Récupération du tag associé à l'élément
           var theTag = $(this).data("gallery-tag");
-          // Si l'affichage des tags est activé, ajout du tag au tableau de tags si celui-ci n'a pas déjà été ajouté
           if (
             options.showTags &&
             theTag !== undefined &&
@@ -40,7 +35,7 @@
             tagsCollection.push(theTag);
           }
         });
-      // Si l'affichage des tags est activé, affichage des tags sur la galerie
+
       if (options.showTags) {
         $.fn.mauGallery.methods.showItemTags(
           $(this),
@@ -48,7 +43,7 @@
           tagsCollection
         );
       }
-      // Affichage de la galerie en fondu
+
       $(this).fadeIn(500);
     });
   };
@@ -86,7 +81,7 @@
       console.log("hourra");
       $.fn.mauGallery.methods.filterByTag(this);
     })
-    // IL MANQUAIT UNE ACCOLADE APRES LA FLECHE DE LA FONCTION FLECHEE
+
     $(".modal-body").on("click", ".mg-prev", () => {
       $.fn.mauGallery.methods.prevImage(options.lightboxId);
       console.log("PREV");
@@ -152,15 +147,11 @@
         );
       }
     },
-    
-
 
 
     moveItemInRowWrapper(element) {
       element.appendTo(".gallery-items-row");
     },
-
-
 
 
     responsiveImageItem(element) {
@@ -170,16 +161,12 @@
     },
 
 
-
-
     openLightBox(element, lightboxId) {
       $(`#${lightboxId}`)
         .find(".lightboxImage")
         .attr("src", element.attr("src"));
       $(`#${lightboxId}`).modal("toggle");
     },
-
-
 
 
     prevImage() {
@@ -335,7 +322,7 @@
 
 
     filterByTag(navLink) {
-        // l'élément navLink n'était pas attribué à la fonction filterByTag, d'où le dysfonctionnement
+      
         if ($(navLink).hasClass("active-tag")) {
           console.log("il a active-tag");
           return;
