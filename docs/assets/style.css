@@ -1,13 +1,12 @@
 body {
 	max-width: 1920px;
+	height: auto;
 	margin: auto;
 }
 
 main {
 	width: 100%;
 	height: auto;
-	display: flex;
-	flex-direction: column;
 }
 
 /** {
