@@ -2,15 +2,15 @@ body {
 	max-width: 1920px;
 	margin: auto;
 }
-* {
+/** {
 	font-family: 'Inter';
 	font-style: normal;
-}
+}*/
 .top-header {
 	background-color: white;
 	position: sticky;
 	top:0;
-	z-index: 1000;
+	/*z-index: 1000;*/
 	display: flex;
 	justify-content: space-between;
 	padding-inline: 100px;
@@ -19,12 +19,16 @@ body {
 }
 
 .top-header .name {
+	font-family: 'Inter';
+	font-style: normal;
 	font-size: 26px;
 }
 
 .nav ul {
 	display: flex;
 	list-style-type: none;
+	font-family: 'Inter';
+	font-style: normal;
 	font-size: 14px;
 	margin-bottom: 0;
 }
@@ -89,6 +93,8 @@ ul {
 .about-me__title {
 	margin-top: 1em;
 	margin-bottom: 60px;
+	font-family: 'Inter';
+	font-style: normal;
 	font-size: 30px;
 }
 .about-me__introduction {
@@ -104,9 +110,6 @@ ul {
 	font-size: 14px;
 }
 
-#gallery {
-	/*	min-height: 100vh; */
-}
 .title{
 	text-align: center;
 	padding-block: 2em;
@@ -122,6 +125,8 @@ ul {
 .nav-pills .nav-link {
 	color: #000;
 	cursor: pointer;
+	font-family: 'Inter';
+	font-style: normal;
 	font-size: 16px;
     padding: 8px 16px;
     margin: 0 auto;
@@ -165,18 +170,17 @@ ul {
 	padding-block: 3em;
 }
 .quote__text {
-	font-family: Spectral;
+	font-family: 'Spectral';
 	font-style: italic;
 	font-weight: 300;
 	font-size: 2.5rem;
 	line-height: 1.2;
 
-
 }
 .quote__author {
 	margin-top: 0;
     margin-bottom: 0.5rem;
-	font-family: Spectral;
+	font-family: 'Spectral';
 	font-weight: 800;
 	font-size: 22px;
 }
