@@ -55,7 +55,7 @@ ul {
 	position: relative;
 }
 
-.picture.left::before {
+.orange-square {
 	content: ' ';
 	background-color: #E5975F;
 	width: 374px;
@@ -95,9 +95,10 @@ ul {
 	font-family: 'Spectral';
 	font-weight: 800;
 	font-style: italic;
-	width: 60%;
 	font-size: 1.25rem;
+	width: 60%;
 }
+
 .about-me__p {
 	width: 80%;
 	font-size: 14px;
@@ -131,6 +132,7 @@ ul {
 	margin-bottom: 0 !important;
 	padding: 0;
 }
+
 .item-column::after{
 	content: "";
 	display: block;
@@ -184,8 +186,8 @@ ul {
 	background-color: #A8D5D8 ;
 	position: relative;
 }
-#services .container::before{
-	content: ' ';
+#services .blue-square{
+	content: '';
 	background-color: #1C6474;
 	position: absolute;
 	width: 100%;
@@ -225,7 +227,7 @@ ul {
 #contact .container {
 	display: flex;
 }
-.picture.right::before {
+.green-square {
 	content: ' ';
 	background-color: #BEB45A;
 	width: 374px;
@@ -297,7 +299,7 @@ input[type="submit"] {
 	.picture {
 		width: 50%;
 	}
-	.picture.left::before {
+	.orange-square {
 		width: 100%;
 		height: 30%;
 		position: absolute;
@@ -323,7 +325,7 @@ input[type="submit"] {
 		margin-bottom: 1em;
 	}
 
-	#services .container::before{
+	#services .blue-square{
 		width: 30%;
 		height: 100%;
 		bottom: 0;
@@ -338,7 +340,7 @@ input[type="submit"] {
 	#contact .picture.right {
 		margin-top: 1em;
 	}
-	.picture.right::before {
+	.green-square {
 		width: 100%;
 		height: 30%;
 		position: absolute;
@@ -362,7 +364,7 @@ input[type="submit"] {
 		padding-block: 1em;
 		text-align: center;
 	}
-	.picture.left::before, .picture.right::before {
+	.orange-square, .green-square {
 		height: 150px;
 	}
 	#services .container {
